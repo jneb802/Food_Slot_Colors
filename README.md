@@ -1,22 +1,19 @@
-# All In One -  Manager Template.
+![Food Slot Colors](https://i.imgur.com/ngHw6Og.png)
 
-Please see the individual templates for more information on how to use each one. This template is only to set up the project for you. All code provided in this template is example code and might not be needed for your specific use case.
+# Food Slot Colors
+The goal of this mod is to make it easier to know what food combinations you ate. If you eat a food that gives more health, the slot will be red. If you eat a food that gives more stamina, the slot will be yellow.
 
+## Features
+- Change food slot color based on food inside it.
+- If food health > stamina, then slot = red
+- If food health = stamina, then slot = default color
+- if food health < stamina, then slot = yellow
 
-## Template Links
-- [ItemManager Mod Template](https://github.com/AzumattDev/ItemManagerModTemplate)
-- [CreatureManager Mod Template](https://github.com/AzumattDev/CreatureManagerModTemplate)
-- [SkillManager Mod Template](https://github.com/AzumattDev/SkillManagerModTemplate)
-- [PieceManager Mod Template](https://github.com/AzumattDev/PieceManagerModTemplate)
-- [LocationManager Mod Template](https://github.com/AzumattDev/LocationManagerModTemplate)
-- [StatusEffectManager Mod Template](https://github.com/AzumattDev/StatusEffectManagerModTemplate)
+## Compatibility
+- Fully compatible with all food mods.
+- Partially compatible with BetterUI. If you enable 'customFoodBar' in BetterUI, Food Slot Colors will not work. Otherwise, they are compatible.
 
-## Original Repos from Blaxxun
-- [ItemManager](https://github.com/blaxxun-boop/ItemManager)
-- [CreatureManager](https://github.com/blaxxun-boop/CreatureManager)
-- [SkillManager](https://github.com/blaxxun-boop/SkillManager)
-- [LocationManager](https://github.com/blaxxun-boop/LocationManager)
+## Support & Feedback
+Please give me feedback if you have any thoughts about the mod! If you have any issues or suggestions feel free to reach out. You can find me in the OdinPlus discord.
 
-## Original Repos from Me
-- [PieceManager](https://github.com/AzumattDev/PieceManager)
-- [StatusEffectManager](https://github.com/AzumattDev/StatusEffectManager)
+Github link: https://github.com/jneb802/More-Ore-Deposits

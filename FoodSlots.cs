@@ -13,7 +13,7 @@ public class FoodSlots
         static readonly Color healthFoodColor = new Color(1f, 0.333f, 0.333f, 0.35f); // Red color for health food
         static readonly Color staminaFoodColor = new Color(1f, 0.9513f, 0.2941f, 0.3f); // Orange color for stamina food
         static readonly Color defaultColor = new Color(0f, 0f, 0f, 0.5375f); // Default color when food is inactive
-                
+
         static void Postfix(Hud __instance)
         {
             // Access the Player's food list
@@ -31,7 +31,7 @@ public class FoodSlots
                 // Only change the color if the food is still active
                 if (foodImage != null && food.m_time > 0)
                 {
-                    Color foodColor = defaultColor; 
+                    Color foodColor = defaultColor;
                     if (food.m_health > food.m_stamina)
                     {
                         foodColor = healthFoodColor; // Red color for health food
@@ -64,7 +64,6 @@ public class FoodSlots
                     }
                 }
             }
+        }
     }
-}
-
 }
