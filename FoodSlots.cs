@@ -10,9 +10,14 @@ public class FoodSlots
     [HarmonyPatch(typeof(Hud), "UpdateFood", new[] { typeof(Player) })]
     static class FoodColorPatch
     {
-        static readonly Color healthFoodColor = new Color(1f, 0.333f, 0.333f, 0.35f); // Red color for health food
-        static readonly Color staminaFoodColor = new Color(1f, 0.9513f, 0.2941f, 0.3f); // Orange color for stamina food
-        static readonly Color defaultColor = new Color(0f, 0f, 0f, 0.5375f); // Default color when food is inactive
+        // Manually set up our alpha value to be the same as vanilla food HUD
+        const float ALPHA = 0.503f;
+
+        // Set our colors using vanilla food icon colors but replacing alpha with HUD alpha
+        private static Color SetFoodColor(Color color, float alpha = ALPHA) => new(color.r, color.g, color.b, alpha);
+        static readonly Color healthFoodColor = SetFoodColor(InventoryGui.instance.m_playerGrid.m_foodHealthColor);
+        static readonly Color staminaFoodColor = SetFoodColor(InventoryGui.instance.m_playerGrid.m_foodStaminaColor);
+        static readonly Color defaultColor = SetFoodColor(Color.black);
 
         static void Postfix(Hud __instance)
         {
