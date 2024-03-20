@@ -17,6 +17,7 @@ public class FoodSlots
         private static Color SetFoodColor(Color color, float alpha = ALPHA) => new(color.r, color.g, color.b, alpha);
         static readonly Color healthFoodColor = SetFoodColor(InventoryGui.instance.m_playerGrid.m_foodHealthColor);
         static readonly Color staminaFoodColor = SetFoodColor(InventoryGui.instance.m_playerGrid.m_foodStaminaColor);
+        static readonly Color eitrFoodColor = SetFoodColor(InventoryGui.instance.m_playerGrid.m_foodEitrColor);
         static readonly Color defaultColor = SetFoodColor(Color.black);
 
         static void Postfix(Hud __instance)
@@ -37,15 +38,19 @@ public class FoodSlots
                 if (foodImage != null && food.m_time > 0)
                 {
                     Color foodColor = defaultColor;
-                    if (food.m_health > food.m_stamina)
+                    // Decide which color to assign using the same logic as for vanilla food icon colors
+                    if (food.m_eitr / 2f > food.m_health && food.m_eitr / 2f > food.m_stamina)
                     {
-                        foodColor = healthFoodColor; // Red color for health food
+                        foodColor = eitrFoodColor;
                     }
-                    else if (food.m_health < food.m_stamina)
+                    else if (food.m_health / 2f > food.m_stamina)
                     {
-                        foodColor = staminaFoodColor; // Orange color for stamina food
+                        foodColor = healthFoodColor;
                     }
-
+                    else if (food.m_stamina / 2f > food.m_health)
+                    {
+                        foodColor = staminaFoodColor;
+                    }
                     foodImage.color = foodColor;
                 }
                 else if (foodImage != null)
